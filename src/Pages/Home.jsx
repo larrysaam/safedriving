@@ -144,7 +144,7 @@ const Home = ()=>{
 
       setInterval(() => {
         detect(net)
-      }, 400);
+      }, 100);
     };
   
     const detect = async (detector) => {
