@@ -200,7 +200,7 @@ export const drawMesh = (predictions, ctx) => {
         const x = keypoints[lefteye[i]][0];
         const y = keypoints[lefteye[i]][1];
         
-        let dist = keypoints[380][0] - keypoints[385][0]
+        let dist = keypoints[380][1] - keypoints[385][1]
 
 
         ctx.font = "20px Arial";
