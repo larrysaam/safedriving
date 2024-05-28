@@ -165,52 +165,161 @@ export const TRIANGULATION = [
     343, 399, 344, 360, 440, 420, 437, 456, 360, 420, 363, 361, 401, 288, 265,
     372, 353, 390, 339, 249, 339, 448, 255,
   ];
+  
+  // const drawPath = (ctx, points, closePath) => {
+  //   const region = new Path2D();
+  //   region.moveTo(points[0].x, points[0].y);
+  //   for (let i = 1; i < points.length; i++) {
+  //     const point = points[i];
+  //     region.lineTo(point.x, point.y);
+  //   }
+  
+  //   if (closePath) {
+  //     region.closePath();
+  //   }
+  
+  //   ctx.strokeStyle = "grey";
+  //   ctx.stroke(region);
+  // };
+  
+  // export const drawMesh = (predictions, ctx) => {
 
+    
+  //   if (predictions.length > 0) {
+  //     predictions.forEach((prediction) => {
+  //       const keyPoints = prediction.keypoints;
+  
+  
+  //       for (let i = 0; i < keyPoints.length; i++) {
+  //         const x = keyPoints[i].x;
+  //         const y = keyPoints[i].y;
+  
+  //         ctx.beginPath();
+  //         ctx.arc(x, y, 1, 0, 3 * Math.PI);
+  //         ctx.fillStyle = "aqua";
+  //         ctx.fill();
+  //       }
+  //     });
+  //   }
+  // };
+  
+
+
+
+
+
+
+
+
+  //MY UTILS
+  
 
   // Triangle drawing method
-const drawPath = (ctx, points, closePath) => {
-  const region = new Path2D();
-  region.moveTo(points[0][0], points[0][1]);
-  for (let i = 1; i < points.length; i++) {
-    const point = points[i];
-    region.lineTo(point[0], point[1]);
-  }
+// const drawPath = (ctx, points, closePath) => {
+//   const region = new Path2D();
+//   region.moveTo(points[0][0], points[0][1]);
+//   for (let i = 1; i < points.length; i++) {
+//     const point = points[i];
+//     region.lineTo(point[0], point[1]);
+//   }
 
-  if (closePath) {
-    region.closePath();
-  }
-  ctx.strokeStyle = "grey";
-  ctx.stroke(region);
-};
+//   if (closePath) {
+//     region.closePath();
+//   }
+//   ctx.strokeStyle = "grey";
+//   ctx.stroke(region);
+// };
 
-// Drawing Mesh
-export const drawMesh = (predictions, ctx) => {
-  if (predictions.length > 0) {
-    predictions.forEach((prediction) => {
-      const keypoints = prediction.scaledMesh;
 
-      
+// // Helper function to calculate Euclidean distance
+// function euclideanDistance(x1, y1, x2, y2) {
+//   const dx = x2 - x1;
+//   const dy = y2 - y1;
+//   return Math.sqrt(dx * dx + dy * dy);
+// }
 
-      // Draw Dots
-      let lefteye = [33, 160, 158, 133, 153, 144, 362, 385, 380, 387, 373, 263, 76, 12, 15, 306]
-      let righteye = [362, 385, 380, 387, 373, 263]
-      let mouth = [76, 13, 14, 306]
 
-      for (let i = 0; i < lefteye.length; i++) {
-        const x = keypoints[lefteye[i]][0];
-        const y = keypoints[lefteye[i]][1];
+// function eye_aspect_ratio(eye){
+//   let p2_minus_p6 = euclideanDistance(eye[1][0],eye[1][1], eye[4][0],eye[4][1])
+//   let p3_minus_p5 = euclideanDistance(eye[2][0],eye[2][1], eye[4][0],eye[4][1])
+//   let p1_minus_p4 = euclideanDistance(eye[0][0],eye[0][1], eye[3][0],eye[3][1])
+//   let ear = (p2_minus_p6) /  p1_minus_p4
+//   return ear
+// }
+
+// function getEyeCoordinate(righteye, keypoints){
+//   let eye = []
+
+//   for(let i = 0; i < righteye.length; i++){
+//     let xd = keypoints[righteye[i]][0];
+//     let yd = keypoints[righteye[i]][1];
+
+//     eye.push([xd, yd])
+
+//   }
+
+//   console.log(eye)
+//   return eye
+// }
+
+
+
+// // Drawing Mesh
+// export const drawMesh = (predictions, ctx) => {
+//   if (predictions.length > 0) {
+//     predictions.forEach((prediction) => {
+//       const keypoints = prediction.scaledMesh;
+
+//       // Draw Dots
+//       let lefteye = [33, 160, 158, 133, 153, 144, 362, 385, 380, 387, 373, 263, 76, 12, 15, 306]
+//       let righteye = [362, 386, 387, 263, 374, 380]
+//       let mouth = [76, 13, 14, 306]
+
+
+//       for (let i = 0; i < righteye.length; i++) {
+//         let x = keypoints[righteye[i]][0];
+//         let y = keypoints[righteye[i]][1];
         
-        let dist = keypoints[380][1] - keypoints[385][1]
+//         let EyeCoordinate = getEyeCoordinate(righteye, keypoints)
+//         let ear =  eye_aspect_ratio(EyeCoordinate)
 
 
-        ctx.font = "20px Arial";
-        ctx.fillText(Math.abs(dist), 10, 80);
+//         ctx.font = "20px Arial";
+//         ctx.fillText("EAR: "+ear, 10, 80);
 
-        ctx.beginPath();
-        ctx.arc(x, y, 3 /* radius */, 0, 3 * Math.PI);
-        ctx.fillStyle = "aqua";
-        ctx.fill();
-      }
-    });
-  }
-};
+//         ctx.beginPath();
+//         ctx.arc(x, y, 1 /* radius */, 0, 3 * Math.PI);
+//         ctx.fillStyle = "aqua";
+//         ctx.fill();
+//       }
+//     });
+//   }
+// };
+
+
+
+
+export const drawMesh = (detections, ctx) =>{
+  // Loop through each prediction
+  detections.forEach(prediction => {
+
+    // Extract boxes and classes
+    const [x, y, width, height] = prediction['bbox']; 
+    const text = prediction['class']; 
+
+    // Set styling
+    const color = Math.floor(Math.random()*16777215).toString(16);
+    ctx.strokeStyle = '#' + color
+    ctx.font = '18px Arial';
+
+    // Draw rectangles and text
+    ctx.beginPath();   
+    ctx.fillStyle = '#' + color
+    ctx.fillText(text, x, y);
+    ctx.rect(x, y, width, height); 
+    ctx.stroke();
+  });
+}
+
+
+
