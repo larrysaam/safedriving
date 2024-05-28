@@ -272,7 +272,7 @@ export const drawMesh = (predictions, ctx) => {
 
       // Draw Dots
       let lefteye = [33, 160, 158, 133, 153, 144, 362, 385, 380, 387, 373, 263, 76, 12, 15, 306]
-      let righteye = [362, 386, 387, 263, 374, 380]
+      let righteye = [362, 385, 387, 263, 373, 380]
       let mouth = [76, 13, 14, 306]
 
 
