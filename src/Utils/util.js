@@ -238,6 +238,11 @@ function euclideanDistance(x1, y1, x2, y2) {
   return Math.sqrt(dx * dx + dy * dy);
 }
 
+function disttwo( y1, y2) {
+  const dy = y2 - y1;
+  return Math.sqrt(dy * dy);
+}
+
 
 function eye_aspect_ratio(eye){
   let p2_minus_p6 = euclideanDistance(eye[1][0],eye[1][1], eye[5][0],eye[5][1])
@@ -258,7 +263,6 @@ function getEyeCoordinate(righteye, keypoints){
 
   }
 
-  console.log(eye)
   return eye
 }
 
@@ -268,6 +272,7 @@ function getEyeCoordinate(righteye, keypoints){
 export const drawMesh = (predictions, ctx) => {
   if (predictions.length > 0) {
     predictions.forEach((prediction) => {
+      console.log(prediction)
       const keypoints = prediction.scaledMesh;
 
       // Draw Dots
@@ -283,9 +288,9 @@ export const drawMesh = (predictions, ctx) => {
         let EyeCoordinate = getEyeCoordinate(righteye, keypoints)
         let ear =  eye_aspect_ratio(EyeCoordinate)
 
+        let dist = disttwo(keypoints[righteye[1]][1], keypoints[righteye[5]][1])
 
-        ctx.font = "20px Arial";
-        ctx.fillText("EAR: "+ear, 10, 80);
+       
 
         ctx.beginPath();
         ctx.arc(x, y, 1 /* radius */, 0, 3 * Math.PI);

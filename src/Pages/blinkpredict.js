@@ -20,9 +20,8 @@ function getEAR(upper, lower) {
 }
 
 
-export async function startPrediciton(predictions) {
+export async function startPrediciton(predictions, ctx) {
     if (predictions.length > 0) {
-        console.log("Blink test ")
       predictions.forEach((prediction) => {
         
         // Right eye parameters
@@ -42,9 +41,10 @@ export async function startPrediciton(predictions) {
   
         // Determine how long you blinked
         if (blinked) {
-           console.log("Blink: ", blinked)
+            ctx.font = "20px Arial";
+            ctx.fillText(" Blinked", 10, 80);
         } else {
-            console.log("open: ", blinked)
+            console.log("open: ")
         }
       });
     }

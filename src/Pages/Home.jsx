@@ -125,6 +125,7 @@ import { runDetector } from "../Utils/detector";
 import '@tensorflow/tfjs-backend-cpu';
 
 import { drawMesh } from '../Utils/util';
+import { startPrediciton } from './blinkpredict';
 
 const inputResolution = {
     width: 1080,
@@ -149,7 +150,7 @@ const Home = ()=>{
 
       setInterval(() => {
         detect(net)
-      }, 90);
+      }, 100);
     };
   
     const detect = async (detector) => {
@@ -170,16 +171,17 @@ const Home = ()=>{
   
         const face = await detector.estimateFaces(video);
 
+       
         //draw mesh
         const ctx = canvasRef.current.getContext("2d");
         requestAnimationFrame(() => {
+          startPrediciton(face, ctx)
           drawMesh(face, ctx);
         });
 
         // const leftEye = mesh.slice(/* Left eye landmark indices */, /* Last index */);
         // const rightEye = mesh.slice(/* Right eye landmark indices */, /* Last index */);
 
-        console.log(face)
       }
     };
   
