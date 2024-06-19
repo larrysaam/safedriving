@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/safedriving/static/css/main.752cab70.css",
-    "main.js": "/safedriving/static/js/main.93f59d8d.js",
+    "main.js": "/safedriving/static/js/main.226dbd95.js",
     "static/js/453.c3e774b4.chunk.js": "/safedriving/static/js/453.c3e774b4.chunk.js",
     "static/media/middle dash.jpg": "/safedriving/static/media/middle dash.6ec1f5594f7d17e8d5cf.jpg",
     "static/media/alarm1.mp3": "/safedriving/static/media/alarm1.97332a97b24e0648dc62.mp3",
@@ -15,11 +15,11 @@
     "static/media/logo.svg": "/safedriving/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/safedriving/index.html",
     "main.752cab70.css.map": "/safedriving/static/css/main.752cab70.css.map",
-    "main.93f59d8d.js.map": "/safedriving/static/js/main.93f59d8d.js.map",
+    "main.226dbd95.js.map": "/safedriving/static/js/main.226dbd95.js.map",
     "453.c3e774b4.chunk.js.map": "/safedriving/static/js/453.c3e774b4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.752cab70.css",
-    "static/js/main.93f59d8d.js"
+    "static/js/main.226dbd95.js"
   ]
 }
