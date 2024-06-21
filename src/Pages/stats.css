@@ -1,0 +1,106 @@
+.statspoint{
+    height: 100px;
+    width: 70px;
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.iconstats1{
+    width: 30px;
+    height: 30px;
+    color: blue;
+}
+
+.iconstats2{
+    width: 30px;
+    height: 30px;
+    color: green;
+}
+
+.iconstats3{
+    width: 30px;
+    height: 30px;
+    color: indigo;
+}
+
+.iconstats4{
+    width: 30px;
+    height: 30px;
+    color: violet;
+}
+
+.icontext{
+    font-size: 15px;
+    text-align: center;
+    color: gray;
+    margin-bottom: -5px;
+    margin-top: -2px;
+}
+
+.iconvalue{
+    font-size: 17px;
+    text-align: center;
+    color: black;
+}
+
+
+.statsdiv{
+    height: 100vh;
+    width: 100%;
+    display: list-item;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+    border: 1px solid white;
+    background-image: linear-gradient(to bottom, rgb(242, 242, 242), rgb(102, 89, 225), rgb(46, 46, 46));
+}
+
+.piechartDiv{
+    height: 225px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.statsdiv h2{
+    font-size: 30px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+
+.bottomdivstats{
+    height: 35%;
+    width: 80%;
+    margin: auto;
+}
+
+.triptimer{
+    font-size: 22px;
+    font-family: monospace;
+    color: white;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.statsMaingrid{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 20px;
+}
+
+.statsgrid{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
